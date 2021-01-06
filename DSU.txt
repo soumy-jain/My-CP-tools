@@ -1,7 +1,4 @@
 // vector<ll> parent, Rank;
-// parent.resize(n+1);
-// Rank.resize(n+1,1);
-// iota(parent.begin(),parent.end(),0);
 
 ll find(ll v)
 {
@@ -17,3 +14,7 @@ void merge(ll u, ll v)
     parent[u]=v;
     Rank[v]+=Rank[u];
 }
+
+// parent.resize(n+1);
+// Rank.resize(n+1,1);
+// iota(parent.begin(),parent.end(),0);
