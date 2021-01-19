@@ -8,7 +8,7 @@
    "If you were to write a story with me in the lead role, it would certainly be...a TRAGEDY." - Kaneki Ken | Tokyo Ghoul
 */
 /******************************************************************************/
-#include "bits/stdc++.h"
+#include <bits/stdc++.h>
 #define ll        long long
 #define ull       unsigned long long
 #define SPEEDHACK ios_base::sync_with_stdio(false);cin.tie(NULL);
