@@ -17,7 +17,7 @@ void innCr()
     fact[0] = inv[0] = invfact[0] = 1;
     fact[1] = inv[1] = invfact[1] = 1;
 
-    for(ll i=2;i<200005;i++)
+    for(ll i=2;i<N;i++)
     {
         fact[i]=(fact[i-1]*i)%MOD;
         inv[i]=((MOD-MOD/i)*inv[MOD%i])%MOD;
