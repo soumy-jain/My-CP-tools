@@ -1,0 +1,1 @@
+g++ -std=c++17 -Wshadow -Wall -o "%e"  -g -D_GLIBCXX_DEBUG
