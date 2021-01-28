@@ -7,7 +7,7 @@ using namespace std;
 //   
 // template<typename T>
 // using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-
+// clang-format off
 void __print(int x) {cerr << x;}
 void __print(long x) {cerr << x;}
 void __print(long long x) {cerr << x;}
@@ -34,7 +34,7 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #else
 #define debug(x...)
 #endif
-
+// clang-format on
 int main()
 {
     ios_base::sync_with_stdio(false);
