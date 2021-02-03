@@ -13,6 +13,18 @@ void dfs(ll u)
     }
 }
 
+void readg(ll n)
+{
+    for (ll i = 0; i < n - 1; i++)
+    {
+        ll u, v;
+        cin >> u >> v;
+        u--, v--;
+        vg[u].push_back(v);
+        vg[v].push_back(u);
+    }
+}
+
 void DFS(ll N)
 {
     vg.clear();
