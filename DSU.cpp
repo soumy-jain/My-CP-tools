@@ -9,6 +9,8 @@ void merge(ll u, ll v)
 {
 	u = find(u);
 	v = find(v);
+	if (u == v)
+		return;
 	if (Rank[v] < Rank[u])
 		swap(v, u);
 	parent[u] = v;
