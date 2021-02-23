@@ -45,9 +45,9 @@ void _print() { cerr << "]\n"; }
 template <typename T, typename... V>
 void _print(T t, V... v) { __print(t); if (sizeof...(v)) cerr << ", "; _print(v...); }
 #ifndef ONLINE_JUDGE
-#define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
+#define dbg(x...) cerr << "[" << #x << "] = ["; _print(x)
 #else
-#define debug(x...)
+#define dbg(x...)
 #endif
 // clang-format on
 
