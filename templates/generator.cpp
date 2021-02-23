@@ -4,7 +4,8 @@
 #define SPEEDHACK ios_base::sync_with_stdio(false); cin.tie(NULL);
 using namespace std;
 
-mt19937_64 rng(12345);
+auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
+mt19937_64 rng(seed);
 
 ll rand(ll a, ll b)
 {
