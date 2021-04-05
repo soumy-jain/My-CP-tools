@@ -1,1 +1,1 @@
-g++ -std=c++17 -Wshadow -Wall -o "%e"  -g -D_GLIBCXX_DEBUG
+g++ -std=c++17 -Wshadow -Wall -O3  -g3 -D_GLIBCXX_DEBUG
