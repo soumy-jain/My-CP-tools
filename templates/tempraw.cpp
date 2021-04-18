@@ -62,7 +62,7 @@ int main()
     SPEEDHACK
     // file
     ll t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--)
     {
         work();
