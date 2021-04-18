@@ -14,8 +14,6 @@
 #define ll        long long
 #define ull       unsigned long long
 #define SPEEDHACK ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define Tc        ll tc; cin>>tc; while(tc--)
-#define Qu        ll qu; cin>>qu; while(qu--)
 #define ff        first
 #define ss        second
 #define sz(v)     (ll)(v).size()
@@ -54,10 +52,20 @@ void _print(T t, V... v) { __print(t); if (sizeof...(v)) cerr << ", "; _print(v.
 /***********************************MAIN***************************************/
 // Are you ready to face the wrath of test cases? Good luck noob Soumy!
 
+void work()
+{
+    
+}
+
 int main()
 {
-	SPEEDHACK
-	// file
-  
-	return 0;
+    SPEEDHACK
+    // file
+    ll t = 1;
+    cin >> t;
+    while (t--)
+    {
+        work();
+    }
+    return 0;
 }
