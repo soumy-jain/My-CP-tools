@@ -1,5 +1,7 @@
 ll nCr(ll n, ll r)
 {
+    if (r > n || r < 0 || n < 0)
+        return 0;
     ll p = 1, k = 1, m;
     if (n - r < r)
         r = n - r;
