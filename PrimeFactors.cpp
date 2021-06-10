@@ -6,7 +6,7 @@ vector<ll> primeFactor(ll n)
         v.push_back(2);
         n/=2;
     }
-    for(ll i=3;i*i<=sqrt(n);i++)
+    for(ll i=3;i*i<=n;i+=2)
     {
         while(n%i==0)
         {
