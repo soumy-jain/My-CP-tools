@@ -1,15 +1,26 @@
-vector<ll> parent, Rank;
-
-ll find(ll v)
+class DSU
 {
-    return parent[v] == v ? v : parent[v] = find(parent[v]);
+  public:
+    vector<int> parent, Rank;
+    int N;
+    DSU(int N) : N(N)
+    {
+        parent.resize(N);
+        iota(parent.begin(), parent.end(), 0);
+        Rank.resize(N, 1);
+    }
+    void merge(int u, int v);
+    int find(int u);
+};
+
+int DSU::find(int u)
+{
+    return (parent[u] == u ? u : (parent[u] = find(parent[u])));
 }
 
-void merge(ll u, ll v)
+void DSU::merge(int u, int v)
 {
-    u = find(u);
-    v = find(v);
-    if (u == v)
+    if ((u = find(u)) == (v = find(v)))
         return;
     if (Rank[v] < Rank[u])
         swap(v, u);
@@ -17,13 +28,4 @@ void merge(ll u, ll v)
     Rank[v] += Rank[u];
 }
 
-void DSU(ll N)
-{
-    parent.clear();
-    Rank.clear();
-    parent.resize(N);
-    Rank.resize(N, 1);
-    iota(parent.begin(), parent.end(), 0);
-}
-
-DSU(n + 50);
+// DSU d(n), d.merge(u,v), d.find(u), d.N
