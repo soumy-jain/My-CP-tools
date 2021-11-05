@@ -4,7 +4,7 @@ vector<bool> prime;
 void sieve()
 {
 	prime[0] = prime[1] = false;
-	for (ll i = 2; i * i < N; i++)
+	for (ll i = 2; i * i <= N; i++)
 	{
 		if (prime[i] == true)
 		{
