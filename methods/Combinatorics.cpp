@@ -38,3 +38,5 @@ class Combinatorics
         return ans;
     }
 };
+
+// Combinatorics comb(n);
