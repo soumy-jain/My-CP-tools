@@ -1,0 +1,17 @@
+Problem : https://codeforces.com/contest/1353/problem/D
+
+This is just an implementation problem. We can use some kind of heap or ordered set to store all segments we need in order we need. To solve this problem on C++ with std::set, we can just rewrite the comparator for std::set like this:
+
+struct cmp {
+	bool operator() (const pair<int, int> &a, const pair<int, int> &b) const {
+		int lena = a.second - a.first + 1;
+		int lenb = b.second - b.first + 1;
+		if (lena == lenb) return a.first < b.first;
+		return lena > lenb;
+	}
+};
+And then just write the std::set like this:
+
+set<pair<int, int>, cmp> segs;
+
+Now the minimum element of the set will be the segment that we need to choose. Initially, the set will contain only one segment [0;n−1]. Suppose we choose the segment [l;r] during the i-th action. Let id=⌊l+r2⌋, where ⌊xy⌋ is x divided by y rounded down. Assign (set) a[id]:=i, then if the segment [l;id−1] has positive (greater than zero) length, push this segment to the set and the same with the segment [id+1;r]. After n such actions we get the answer.
