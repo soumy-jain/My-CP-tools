@@ -1,50 +1,61 @@
-class Trie
-{
-  public:
-    struct Node
-    {
-        int cnt = 0;
-        Node *nxt[2] = {};
+class BitTrie {
+private:
+    struct Node {
+        Node* children[2] = {};
+        int count = 0;
     };
 
-    Node *root = new Node;
+    Node* root = new Node();
 
-    void insert(int n)
-    {
-        Node *cur = root;
-        for (int i = 31; i >= 0; i--)
-        {
-            if (!cur->nxt[(n >> i) & 1])
-                cur->nxt[(n >> i) & 1] = new Node;
-            cur = cur->nxt[(n >> i) & 1];
-            cur->cnt++;
-        }
+    void deleteSubtree(Node* node) {
+        if (!node) return;
+        deleteSubtree(node->children[0]);
+        deleteSubtree(node->children[1]);
+        delete node;
     }
 
-    void remove(int n)
-    {
-        Node *cur = root;
-        for (int i = 31; i >= 0; i--)
-        {
-            cur = cur->nxt[(n >> i) & 1];
-            cur->cnt--;
-        }
+public:
+    ~BitTrie() {
+        deleteSubtree(root);
     }
 
-    int maxxor(int n)
-    {
-        int ans = 0;
-        Node *cur = root;
-        for (int i = 31; i >= 0; i--)
-        {
-            if (cur->nxt[!((n >> i) & 1)] && cur->nxt[!((n >> i) & 1)]->cnt)
-            {
-                ans |= 1 << i;
-                cur = cur->nxt[!((n >> i) & 1)];
+    void insert(int number) {
+        Node* current = root;
+        for (int i = 31; i >= 0; --i) {
+            int bit = (number >> i) & 1;
+            if (!current->children[bit]) {
+                current->children[bit] = new Node();
             }
-            else
-                cur = cur->nxt[((n >> i) & 1)];
+            current = current->children[bit];
+            current->count++;
         }
-        return ans;
+    }
+
+    void remove(int number) {
+        Node* current = root;
+        for (int i = 31; i >= 0; --i) {
+            int bit = (number >> i) & 1;
+            if (!current->children[bit]) return;
+            current = current->children[bit];
+            current->count--;
+        }
+    }
+
+    int findMaxXOR(int number) {
+        Node* current = root;
+        int max_xor = 0;
+        for (int i = 31; i >= 0; --i) {
+            int bit = (number >> i) & 1;
+            int desired_bit = 1 - bit;
+            if (current->children[desired_bit] && current->children[desired_bit]->count > 0) {
+                max_xor |= (1 << i);
+                current = current->children[desired_bit];
+            } else if (current->children[bit] && current->children[bit]->count > 0) {
+                current = current->children[bit];
+            } else {
+                break;
+            }
+        }
+        return max_xor;
     }
 };
